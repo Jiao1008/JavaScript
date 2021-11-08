@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+    <title>使用DOM操作CSS</title>
+    <style>
+        #box1 {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<br>
+    <button id="btn01">点我一下</button>
+    <br/><br/>
+    <button id="btn02">点我一下</button>
+    <br/><br/>
+    <div id="box1" style="width: auto;"></div>
+
+</body>
+<script type="text/javascript">
+    /*
+    *点击按钮后，修改box1的大小
+    *
+    *
+    *
+    */
+    // 获取box1
+    var box1 = document.getElementById("box1");
+    // 为按钮绑定单击响应函数
+    var btn01 = document.getElementById("btn01");
+    var btn02 = document.getElementById("btn02");
+    //读取box1的宽度
+        /*获取元素 当前显示 样式
+        *   语法：元素.currentStyle.样式名（只有IE支持）
+        *其他浏览器：getComputed()方法获取，该方法是window的方法
+        *   需要连个参数：
+        *       第一个：元素；第二个：伪元素，一般都穿null
+        *该方法会返回一个对象，对象中封装了当前元素对应的样式（该方法不支持IE8及以下的浏览器）
+        * 可以通过obj.样式名 来获取到真实值。
+        */
+    btn01.onclick = function () {
+        //兼容
+        var style = getStyle(box1,"width");
+        // alert(getComputedStyle);
+        alert(style);
+    };
+    btn02.onclick =  function(){
+        //正常浏览器的方式
+        //兼容
+        var style = getStyle(box1,"width");
+        // alert(getComputedStyle);
+        alert(style);
+        
+        
+    }
+
+    /*
+    *定义一个函数，用来获取指定元素的当前样式
+    *参数：
+    *   obj  需要获取样式的元素
+    *   name 要获取的样式名
+    */ 
+    function getStyle(obj, name) {
+        // alert(getComputedStyle);
+        //两种方式都是只读的
+        //正常浏览器的方式
+        // return getComputedStyle(obj, null)[name];
+        
+        // if (window.getComputedStyle) {
+        //     //正常浏览器的方式
+        //     return getComputedStyle(obj, null)[name];
+        // } else {
+        //     //IE8的方式
+        //     return obj.currentStyle[name];
+        // }
+
+        //处理兼容性
+        return window.getComputedStyle ? getComputedStyle(obj, null)[name] : obj.currentStyle[name];
+    }
+</script>
+
+</html>

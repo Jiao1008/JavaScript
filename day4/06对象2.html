@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        var obj = new Object();
+        var obj2 = new Object();
+        // 使用特殊的属性名，不能采用.的方式来操作
+        // 语法：对象["属性名"] = 属性值
+        obj["123"] = 456;
+        var n = "123";
+        obj2["sss"] = "nihao";
+        obj2.test = obj;
+        // "xxx" in XXX  ; 检查obj中是否含有 test 属性
+        console.log("test" in obj2)
+    </script>
+</body>
+
+</html>

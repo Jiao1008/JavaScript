@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+var a = 123,
+b = "123";
+
+/*可以使用运算符 typeOf 检查数据类型
+语法：typeOf 变量*/
+console.log(a);
+console.log(b);
+console.log(typeof a);
+console.log(typeof b);
+/*表示数字的最大值*/
+a = Number.MAX_VALUE;
+console.log(a);
+console.log(a = -a*a);
+/*若数字超过 1.7976931348623157e+308，则返回 Infinity正无穷*/
+
+a = 'abc' * 'acb';
+console.log(a);
+
+a = NaN;
+console.log(typeof a);
+/*最小值 5e-324，若超过该数值，则返回 -Infinity*/
+a = Number.MIN_VALUE;
+console.log(a)
+/*浮点计算不精确*/
+c = 0.1 + 0.4;
+console.log(c);
+ /*布尔值*/
+ var bool = false;
+        console.log(bool);
+        console.log(typeof bool);
+        /*Null 类型只有一个值 null
+        null表示一个为空的对象*/
+        a = null;
+        console.log(a);
+        console.log(typeof a);
+        /*Undefined（未定义） 类型只有一个值 undefined*/
+        a = undefined;
+        console.log(a);
+        console.log(typeof a)
+    </script>
+</body>
+</html>

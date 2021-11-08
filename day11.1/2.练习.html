@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+        <title>Document</title>
+        <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            /* 开启div的绝对定位 */
+            position: relative;
+        }
+        body{
+            height: 2000px;
+            width: 2000px;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="box2" style="width: 500px; height: 500px; background-color: #bfa;"></div>
+        <div id="box1"></div>
+
+    </body>
+        <script type="text/javascript">
+        /*使div跟随鼠标移动*/
+        var box1 = document.getElementById("box1");
+        document.onmousemove = function(event){
+            //解决兼容性问题
+            event = event || window.event;
+            //获取滚动条滚动的距离
+            // chrome认为浏览器的滚动条是body的，可用body.scrollTop来获取；
+            // 而火狐邓则认为是html的
+            var st = document.body.scrollTop || document.documentElement.scrollTop;  //documentElement返回一个html文档的html元素
+            var sl = document.body.scrollLeft || document.documentElement.scrollLeft;
+            /* 
+            *clientX和clientY 获取鼠标指针相对于 当前窗口 的水平坐标和垂直坐标。
+            *div偏移量，是相对于整个页面的
+            * pageX和pageY可以获取鼠标相对于当前页面的坐标
+            *   -但两个属性2021年在chrome、火狐、IE等各大浏览器不支持中不支持。 
+            */
+            //获取到鼠标坐标
+            var left = event.clientX;
+            var top = event.clientY;
+            //设置div偏移量
+            box1.style.left = left + sl + "px";
+            box1.style.top = top + st + "px";
+        }
+        var box2 = document.getElementById("box2");
+        box2.onmousemove = function(event){
+            event.cancelBubble = true;
+        }
+        </script>
+</html>

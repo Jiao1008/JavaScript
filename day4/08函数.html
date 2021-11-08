@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+<input type="button" value="Button1" id="btn1" />
+<input type="button" value="Button2" id="btn2" />
+<input type="button" value="Button3" id="btn3" onclick="buttonClicked();"/>
+    <script type="text/javascript">
+    //创建一个函数对象
+function buttonClicked() {
+    var text = (this === window) ? 'window' : this.id;
+    alert(text);
+}
+var button1 = document.getElementById('btn1');
+var button2 = document.getElementById('btn2');
+
+button1.onclick = buttonClicked;
+button2.onclick = function() {
+    buttonClicked();
+}
+    </script>
+    </body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+
+    </div>
+
+</body>
+<script type="text/javascript">
+    //创建一个Person构造函数
+    /*  构造函数每执行一次就会创建一个新的 sayName 方法，即，所有实例的 sayName 都是唯一的
+    
+    */
+    function Person(name, age, gender) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        //向对象添加一个方法
+        // this.sayName = fun;
+    }
+    //在全局作用域中定义 sayName 函数，不好
+    // function fun() {
+    //         alert("Hello大家好，我是" + this.name);
+    //     }
+
+    //向原型对象中添加 sayNaame 方法
+        Person.prototype.sayName = function () {
+            alert("Hello大家好，我是" + this.name);
+        }
+
+    var per = new Person("孙悟空", 12, "男");
+    per.sayName()
+    var per1 = new Person("沙和尚", 32, "男");
+    per1.sayName()
+</script>
+
+</html>

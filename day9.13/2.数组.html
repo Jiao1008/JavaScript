@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+
+    </div>
+
+</body>
+<script type="text/javascript">
+    /*
+    * 内建对象
+    * 宿主对象   
+    * 自定义对象
+    * 
+    * 数组（Array）
+    *    ---数组也是对象
+    *    ---不同：普通对象使用 字符串 作为属性名，数组使用索引值
+    *    ---数组的存储性能比普通对象要好，开发中经常使用数组来存储数据
+    */
+
+    //创建数组对象
+    var arr = new Array();
+    arr = [1, 2, , 4, 56, 54];
+    console.log("@@@", arr[2])  // undefined ，非连续数组
+    console.log(arr.length)    // 设置 或 返回 数组的长度
+    arr.length = 10;      // 修改长度
+    arr[arr.length] = 41;   //向数组最后一位添加元素
+    console.log(arr)
+
+    arr.length = 10;
+</script>
+
+</html>

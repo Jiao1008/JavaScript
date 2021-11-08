@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        var result = 5 > 10;  //false
+        result = 5 < 10;      //true
+         
+        result = 5 <= 4;      //false
+        result = 5 >= 5;      //true
+        result = 1 > true;    //false
+        result = 0 >= "0";    //true
+        result = 5 > "hello"  //false，任何值和 NaN 作比较都为false
+        
+        result = "a" > "c";    //false，a=97，c=99
+        result = "abd" < "bhd";  //一位一位比较,可进行英文排序
+        result = "2" < "10";   //false，不比较数值，而比较 unicode 编码
+        result = "2" < +"10";  //比较两个字符串型的数字时，一定一定一定要转型
+        console.log("result = " + result)
+    </script>
+</body>
+
+</html>

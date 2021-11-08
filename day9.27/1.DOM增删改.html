@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../day9.26/css.css">
+    <script type=" text/javascript" src="https://unpkg.com/vue/dist/vue.js">
+    </script>
+    <title>DOM查询</title>
+</head>
+
+<body>
+
+    <div id="total">
+        <div class="inner">
+            <p>你喜欢那个城市？</p>
+
+            <ul id="city">
+                <li id="bj">北京</li>
+                <li>上海</li>
+                <li>东京</li>
+                <li>首尔</li>
+            </ul>
+            <br>
+            <br>
+        </div>
+    </div>
+    <div id="btnlist">
+        <div><button id="btn01">01.创建一个“广州”节点</button></div>
+        <div><button id="btn02">02.将“广州”节点插入到#bj前面</button></div>
+        <div><button id="btn03">03.使用“广州”节点替换#bj节点</button></div>
+        <div><button id="btn04">04.删除#bj节点</button></div>
+        <div><button id="btn05">05.读取#city内的HTML代码</button></div>
+        <div><button id="btn06">06.设置#bj内的HTML代码</button></div>
+        <div><button id="btn07">07.使用innerHTML添加“西安”</button></div>
+        <div><button id="btn08">08.折中添加“杭州”</button></div>
+    </div>
+
+</body>
+<script type="text/javascript">
+    //定义一个函数，为指定元素绑定一个单击响应函数
+    // idStr为要绑定单击函数的对象的id属性
+    function myClick(idStr, fun) {
+        var btn = document.getElementById(idStr);
+        btn.onclick = fun;
+    };
+    // 在#city下创建一个“广州”节点
+    myClick("btn01", function () {
+        // 创建广州节点<li>广州</li>
+        // 创建li元素节点
+        var li = document.createElement("li");   //需要一个 标签名 作为参数，来创建元素节点对象，并将创建好的对象作为返回值返回
+        var gzText = document.createTextNode("广州");   // 创建一个 文本节点
+        li.appendChild(gzText);   // 向父节点添加新的子节点   父节点.appendChild(子节点)
+
+        var city = document.getElementById("city");
+        var bj = document.getElementById("bj");
+        city.appendChild(li);   // 
+    });
+    // 将“广州”节点插入到#bj前面
+    myClick("btn02", function () {
+        var li = document.createElement("li");   //需要一个 标签名 作为参数，来创建元素节点对象，并将创建好的对象作为返回值返回
+        var gzText = document.createTextNode("广州");   // 创建一个 文本节点
+        li.appendChild(gzText);   // 向父节点添加新的子节点   父节点.appendChild(子节点)
+
+        var city = document.getElementById("city");
+        var bj = document.getElementById("bj");
+        city.insertBefore(li, bj);    // 在指定的子节点前面插入新的子节点   父节点.insertBefore(新节点,旧节点)
+    });
+    // 使用“广州”节点替换#bj节点
+    myClick("btn03", function () {
+        var li = document.createElement("li");   //需要一个 标签名 作为参数，来创建元素节点对象，并将创建好的对象作为返回值返回
+        var gzText = document.createTextNode("广州");   // 创建一个 文本节点
+        li.appendChild(gzText);   // 向父节点添加新的子节点   父节点.appendChild(子节点)
+
+        var city = document.getElementById("city");
+        var bj = document.getElementById("bj");
+        city.replaceChild(li, bj);   // 父节点.replaceChild(新节点,旧节点)
+    });
+    // 删除#bj节点
+    myClick("btn04", function () {
+        var city = document.getElementById("city");
+        var bj = document.getElementById("bj");
+        city.removeChild(bj);    // 删除子节点   父节点.removeChild(子节点)
+
+        // 自删法
+        bj.parentNode.removeChild(bj);
+    });
+    // 读取#city内的HTML代码
+    myClick("btn05", function () {
+        alert(city.innerHTML);
+    });
+    // 设置#bj内的HTML代码
+    myClick("btn06", function () {
+        bj.innerHTML = "雄安";
+    });
+
+    // 使用innerHTML也可以完成DOM增删改的相关操作
+    // 一般两种方式结合使用
+    myClick("btn07", function () {
+        city.innerHTML += "<li>西安</li>";
+    });
+
+    // btn01和btn07都不好
+    // 折中方式
+    myClick("btn08", function () {
+        var li = document.createElement("li");
+        var city = document.getElementById("city");
+        li.innerHTML = "杭州";
+        city.appendChild(li);
+    })
+
+</script>
+
+</html>

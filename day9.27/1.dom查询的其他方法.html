@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="root">
+    <div>我是root1中的div</div>
+    <div id="app">我是app中的div</div>
+    </div>
+    <div>
+    </div>
+</body>
+<script type="text/javascript">
+    // 获取body标签
+    // var body = document.getElementsByTagName("body")[0];
+    var body = document.body;    //保存的是 body的引用
+    var body = document.documentElement;     //保存的是 html的根标签
+    var all = document.all;    // all 代表 页面的所有元素
+    var all2 = document.getElementsByTagName("*");  //  all 相当于 getElementsByTagName("*")
+
+    console.log(all.length);
+    for (var i = 0; i < all.length; i++) {
+        console.log(all[i]);
+    }
+    var div = document.querySelector(".root");   // 返回第一个结果，根据css选择器查询元素节点对象
+    div2 = document.querySelectorAll("#app")     // 返回页面所有结果，封装到一个数组
+    console.log(div2);
+
+
+</script>
+
+</html>

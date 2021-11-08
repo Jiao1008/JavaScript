@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+    <title>轮播图</title>
+    <style>
+        #img1 {
+            width: 600px;
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./img/q1.jpg" id="img1">
+    <button id="btn01">开始播放</button>
+    <button id="btn02">停止播放</button>
+
+</body>
+<script type="text/javascript">
+    /*
+        使图片自动切换
+    */
+    //获取img标签
+    var img1 = document.getElementById("img1");
+    var imgArr = ["./img/q1.jpg", "./img/q2.jpg", "./img/q3.jpg", "./img/q4.jpg", "./img/q5.jpg", "./img/q6.jpg", "./img/q7.jpg", "./img/q8.jpg"];
+    var btn01 = document.getElementById("btn01");
+    var btn02 = document.getElementById("btn02");
+    var start;
+    //按每没点击一次，就会开启一个定时器
+    //点击多次就会开启多个定时器，就导致图片切换速度加快
+    //点击按钮开始播放图片
+    btn01.onclick = function () {
+        clearInterval(start);
+        //创建变量，保存当前图片的索引
+        var index = 0;
+        //开启定时器，自动切换图片
+        start = setInterval(function () {
+            index++;
+            // if (index >= imgArr.length) {
+            //     index = 0
+            // }
+            index = index % imgArr.length;
+            img1.src = imgArr[index];
+        }, 1000);
+    }
+    btn02.onclick = function () {
+        /*
+            clearInterval()可以接收任意参数
+        */
+        clearInterval(start);
+    }
+</script>
+
+</html>

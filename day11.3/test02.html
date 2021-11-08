@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>TEST02</h1>
+    <a href="test01.html">去test01</a>
+    <button id="btn01">前进</button>
+    <button id="btn02">加载</button>
+
+</body>
+<script type="text/javascript">
+// console.log(history);
+    /*
+        back() - 等同于在浏览器点击后退按钮
+        forward() - 等同于在浏览器中点击前进按钮
+    */
+    var btn01 = document.getElementById("btn01");
+    var btn02 = document.getElementById("btn02");
+    alert("Hello\nHow are you?")
+    console.log(prompt("请输入您的姓名","比尔盖茨"));
+    btn01.onclick = function(){
+        history.forward();
+    }
+    btn02.onclick = function(){
+        history.go(2);
+    }
+    
+</script>
+
+</html>

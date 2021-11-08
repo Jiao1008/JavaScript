@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+
+        <div>
+
+        </div>
+
+    </body>
+        <script type="text/javascript">
+/*
+    创建一个构造函数
+    
+    用 in 检查对象中是否有某个属性时，如果对象中没有但是原型中有，也会返回 true
+
+    原型对象也是对象，所以它也有原型，直到找到 Object 对象的原型。
+    Object 对象的原型没有原型，如果在 Object 中依然没找到，则返回 null 。
+*/
+function Myclass() {
+    
+}
+//向 Myclass原型对象中添加一个 name 属性
+Myclass.prototype.name = "我是原型中的name";
+var mc = new Myclass();
+mc.age = 18;
+console.log(mc.name);         // 我是原型中的name
+//检查 mc 中是否有 name 属性
+console.log("name" in mc);    // false
+// 使用对象的 hasOwnProperty() 来检查 对象自身 中是否含有该属性
+console.log(mc.hasOwnProperty("name"));  // false
+console.log(mc.hasOwnProperty("age"));   // true
+console.log(mc.__proto__.hasOwnProperty("hasOwnProperty"));   // false
+console.log(mc.__proto__.__proto__.hasOwnProperty("hasOwnProperty"));   // true ----hasOwnProperty是 mc 的原型中的原型中的
+console.log(mc.__proto__.__proto__.__proto__)   // null -----没有原型了
+        </script>
+</html>

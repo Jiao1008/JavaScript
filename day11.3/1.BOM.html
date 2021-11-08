@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+    <title>BOM</title>
+</head>
+
+<body>
+
+
+</body>
+<script type="text/javascript">
+    /*
+    * BOM
+        -浏览器对象模型
+        -通过JS操作浏览器（网页）
+        -提供一组对象，用来操作浏览器
+        -BOM对象
+            -Window
+                -代表整个浏览器的窗口，也是网页中的全局对象
+            -Navition
+                -代表当前浏览器的信息，识别浏览器
+            -Location
+                -代表浏览器的地址栏信息，通过location可以获取地址栏信息，或操作跳转页面
+            -History
+                -代表浏览器的历史记录
+                    由于隐私，不能获取到具体历史信息
+                    该操作只在当次访问时有效
+            -Screen
+                -代表用户屏幕信息，可以获取用户显示器的相关信息
+            这些对象都是作为window对象的属性来用
+    */
+
+    console.log(navigator.userAgent);
+    /* 
+        cookieEnabled 属性      如果 cookie 已启用，返回 true；否则返回 false。
+        appName属性             返回浏览器的应用程序名称。"Netscape" 是 IE11、Chrome、Firefox 以及 Safari 的应用程序名称的统称。
+        appCodeName 属性        返回浏览器的应用程序代码名称。"Mozilla" 是 Chrome、Firefox、IE、Safari 以及 Opera 的应用程序代码名称。
+        product 属性            返回浏览器引擎的产品名称。
+        appVersion 属性         返回有关浏览器的版本信息
+        userAgent 属性          返回由浏览器发送到服务器的用户代理报头（user-agent header）
+        platform 属性           返回浏览器平台（操作系统）
+        language 属性           返回浏览器语言
+        onLine 属性             假如浏览器在线，返回 true。
+        javaEnabled() 方法      如果 Java 已启用，返回 true，
+    */
+    var ua = navigator.userAgent;
+    if (/chrome/i.test(ua)) {
+        alert("我是Chrome浏览器！");
+    } else if (/firefox/i.test(ua)) {
+        alert("我是火狐浏览器！");
+    }
+
+
+    console.log(location);
+    // href            返回当前页面的 href (URL = 域名 + 路径（文件名）)
+    // hostname        返回 web 主机的域名 
+    // pathname        返回当前页面的路径或文件名
+    // protocol        返回使用的 web 协议（http: 或 https:）
+    // port            返回（当前页面的）互联网主机端口的编号。
+    // assign()方法    加载新文档
+    // reload()        刷新。reload(true) - 强制清空缓存
+    // replace()       新页面替换旧页面，不会生成历史记录，不能使用回退按钮
+
+    // console.log(history);
+    /*
+        back() - 等同于在浏览器点击 后退按钮，后退
+        forward() - 等同于在浏览器中点击 前进按钮，前进
+        length() - 获取到当前访问的 链接数量
+        go(int) - 等同于浏览器点击 刷新按钮，加载具体网页
+    */
+
+
+    // console.log(screen);
+</script>
+
+</html>

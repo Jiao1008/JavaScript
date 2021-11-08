@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+
+        <div>
+
+        </div>
+
+    </body>
+        <script type="text/javascript">
+// forEach()遍历数组 
+//   ---该方法只支持IE8以上浏览器
+//   ---需要一个函数作为参数
+//   ---像这种函数，由我们创建但不由我们调用的，称为 回调函数
+//   ---数组中有几个元素函数就会执行几次
+//   ---每次执行时，浏览器会将遍历到的元素以 实参 的形式传递过来，我们可以定义 形参 来读取这些内容
+/*   ------ a:当前遍历元素的 值
+     ------ b:当前遍历元素的 索引值
+     ------ c:当前遍历元素本身的数组
+*/
+//创建一个数组
+var arr = ["猪八戒", "孙悟空", "沙和尚","唐僧","白骨精"];
+
+arr.forEach(function(value,index,obj){
+console.log(value)  // 猪八戒
+console.log(index)  // 0
+console.log(obj)  // ["猪八戒", "孙悟空", "沙和尚","唐僧","白骨精"]
+});
+        </script>
+</html>

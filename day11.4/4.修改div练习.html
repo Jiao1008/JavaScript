@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+		<title>Document</title>
+		<style>
+			#box1 {
+				width: 100px;
+				height: 100px;
+				background-color: yellowgreen;
+				position: absolute;
+				left: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="box1"></div>
+
+	</body>
+	<script type="text/javascript">
+		//为document绑定一个按键按下事件
+		var box1 = document.getElementById("box1");
+		var timer;
+		document.onkeydown = function(event) {
+			clearInterval(timer);
+			var speed = 10;
+			event = event || window.event;
+			var oldVal = parseInt(getStyle(box1, "left"));
+			switch (dir) {
+				case 37:
+					box1.style.left = box1.offsetLeft - speed + "px";
+				case 38:
+					box1.style.top = box1.offsetTop - speed + "px";
+				case 39:
+					box1.style.left = box1.offsetLeft + speed + "px";
+				case 40:
+					box1.style.top = box1.offsetTop - speed + "px";
+			};
+			timer = setInterval(function(){
+				var newVal = oldVal+speed+"px";
+				if(document.onkeyup){
+					clearInterval(timer);
+				}
+			},30)
+		}
+		
+		//定义一个函数，获取元素样式
+		function getStyle(obj, name) {
+			if (window.getComputedStyle) {
+				return window.getComputedStyle(obj, null)[name];
+			} else {
+				return obj.currentStyle(name);
+			}
+		}
+	</script>
+
+</html>

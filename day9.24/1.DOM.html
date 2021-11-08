@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">我是一个按钮</button>
+
+    <script type="text/javascript">
+/*
+* 浏览器已经为我们提供 文档节点 对象，这个对象是window属性
+* 可以在页面中直接使用，文档节点代表整个网页
+*
+*
+*/
+
+// console.log(document)  文档对象
+//获取到button对象
+var btn = document.getElementById("btn");
+//修改按钮的文字
+btn.innerHTML = "你好啊";
+console.log(btn.innerHTML)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+
+    </div>
+
+</body>
+<script type="text/javascript">
+
+    // 创建一个Person构造函数
+    function Person(name, age, gender) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+    }
+
+    //修改原型的 toString
+    Person.prototype.toString = function () {
+        return "Person[name=" + this.name + ",age=" + this.age + ",gender=" + this.gender + "]"
+    }
+    //创建一个Person实例
+    var per = new Person("孙悟空", 18, "男");
+    var per2 = new Person("猪八戒", 20, "男");
+    //当我们希望在输出对象时不输出 [object Object] ，则可以为对象添加一个 toString()方法
+
+
+    //当我们直接在页面中打印一个对象时，实际上输出的是对象的 toString()方法的返回值
+    console.log(per)   // Object { name: "孙悟空", age: 18, gender: "男" }
+    console.log(per.toString())  // [object Object]
+
+
+    console.log(per2)   // Object { name: "孙悟空", age: 18, gender: "男" }
+
+</script>
+
+</html>

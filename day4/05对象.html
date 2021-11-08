@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+
+    <script type="text/javascript">
+//使用 new 关键字调用函数，是构造函数constructor
+//构造函数是专门用来创建对象的函数
+var obj = new Object();
+// console.log(typeof(obj));
+// 向对象中添加属性
+// 语法：对象.属性名 = 属性值;
+ obj.name = "孙悟空";
+// 改
+obj.name = "猪八戒";
+// 增
+obj.gender = "女";
+obj.age = 20;
+// 删
+delete obj.name;
+// 查
+console.log(obj) 
+
+// 使用特殊的属性名，不能采用.的方式来操作
+// 语法：对象["属性名"] = 属性值
+obj["zxc"] = "bhb";
+obj["123"] = 456;
+var n = "123"
+console.log(obj[n])
+    </script>
+    </body>
+</html>

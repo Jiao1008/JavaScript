@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 可以将jsdiamante编写到外部js文件中，然后通过script标签引入
+         写到外部文件中可以在不同页面中同时引用，也可以利用到浏览器的缓存机制
+         推荐使用方式 -->
+    <script type="text/javascript" src="../js/01.js">
+        // 直接写在script标签中
+        // 控制浏览器弹出一个警告框
+        // alert("我是script标签中的代码")
+        // 让计算机在页面输出一个内容
+        // document.write("看我出不出来~~~")
+        // 向控制台输出内容
+        // console.log("你猜我在哪出来呢")
+        // script标签一旦引入外部文件，就不能再内部编写了，即使写了，也会被浏览器忽略
+        // 如果需要，则可以创建一个新的script标签用于编写内部代码
+
+
+        //JS注释
+        /* 多行注释，注释中的内容不会被执行，
+        但是可以在源代码中查看 
+        */
+        //单行注释
+        
+        alert("我是内部的")
+    </script>
+    <script type="text/javascript">
+        alert("我是内部的JS代码")
+    </script>
+
+</head>
+
+<body>
+    <!-- 可以将js代码写在标签onclick属性中
+    当点击按钮时，js代码才会执行
+
+虽然可以写在标签的属性中，但属于结构与行为耦合，不方便维护，不推荐使用-->
+&#128512;%20<button onclick="alert('点我干嘛')">点我一下</button>
+
+    <a href="javascript:alert('让你点你就点！');">你也可以点我一下</a>
+    <a href="javascript:;">你也点我一下</a>
+</body>
+
+</html>

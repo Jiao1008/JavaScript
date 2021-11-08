@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+        <title>作用域</title>
+    </head>
+    <body>
+
+        <div>
+
+        </div>
+
+    </body>
+        <script type="text/javascript">
+/* 作用域：指一个变量的作用范围
+1.全局作用域
+  -在页面打开时创建，页面关闭时销毁；
+  -任何文职都可以访问到
+  -有一个全局对象 window ,可以直接使用
+    ---代表一个浏览器窗口，由浏览器创建
+  -创建的变量都会作为 window对象 的 属性 保存
+  -创建的函数都会作为 window对象 的 方法 保存
+  -函数中不使用 var 声明的变量都是 全局变量
+2.局部作用域（函数作用域）
+  -调用函数时创建函数作用域，函数调用完毕后销毁函数作用域
+  -每调用一次，就会创建一次函数作用域，他们之间是相互独立的
+  -当在函数作用域中操作一个变量时，先向自身寻找，若没有，则向上一级寻找，就近原则
+  -若全局作用域中依然没有找到，则会报错 ReferenceError
+  -定义形参就相当于在函数作用域中声明了变量
+*/
+
+var a = 23;
+console.log(window.a)
+
+function fun() {
+    var a = 123;
+    console.log(a)
+}
+window.fun()   // 等同于 fun()
+alert("hello")  // 等同于 window.alert
+
+
+/* 声明提前
+1.变量的声明提前
+  -使用 var 关键字声明的变量，会在所有普代码执行之前被声明（但不会被赋值）
+  -但是，如果声明变量时不使用 var 关键字，则变量不会被声明提前
+2.函数的声明提前
+  -使用 函数声明形式 创建的函数 function 函数名（）{}
+  -会在所有代码执行之前就被创建，所以在函数声明之前就可以调用函数
+  -函数表达式 var fun = function(){} ,则不能提前调用
+
+
+*/
+        </script>
+</html>

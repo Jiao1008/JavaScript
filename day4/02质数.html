@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+
+        //打印1-100之间所有的数
+        for (let i = 2; i <= 100; i++) {
+            //创建一个布尔值，默认为true，即i是质数。
+            var flag = true;
+            //获取2-i之间的所有数
+            for (let j = 2; j < i; j++) {
+                //判断i能否被j整除，能整除则证明不是质数。
+                if (i % j == 0) {
+                    flag = false;
+                }
+                
+            }
+            if (flag) {
+                console.log(i);
+            }
+            
+            
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+    <title>其他样式属性的操作</title>
+    <style>
+        /* *{
+            margin: 0;
+            padding: 0;
+        } */
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin: 20px;
+        }
+
+        #box2 {
+            height: 100px;
+            background-color: aqua;
+        }
+
+        #box4 {
+            width: 200px;
+            height: 300px;
+            background-color: blanchedalmond;
+            overflow: auto;
+        }
+        #box5 {
+            width: 400px;
+            height: 600px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <button id="btn01">点我一下</button>
+    <br /><br />
+    <div id="box4">
+        <div id="box5"></div>
+    </div>
+    <br /><br />
+    <div id="box2" style="position: relative;">
+        <div id="box1"></div>
+    </div>
+
+
+</body>
+<script type="text/javascript">
+    var box1 = document.getElementById("box1");
+    var btn01 = document.getElementById("btn01");
+    var box4 = document.getElementById("box4");
+
+    btn01.onclick = function () {
+        /*
+        element.clientHeight	返回元素的 可见高度。
+        element.clientWidth     返回元素的 可见宽度。
+            -这些属性不带px,直接返回数字。
+            -包括内容区和内边距，不包括边框
+            -这些属性都是只读的，不可以修改
+        */
+
+        /*
+        element.offsetHeight	返回元素的高度。
+        element.offsetWidth	    返回元素的宽度。
+            -获取元素整个大小，包括内容区、内边距和边框
+        element.offsetLeft	    返回元素的水平偏移位置。
+        element.offsetParent	返回当前元素的定位父元素）。
+            -获取离当前元素最近的开启了定位的祖先元素
+            -如果所有祖先元素都没开启定位，则返回 body
+        element.offsetTop	    返回元素的垂直偏移位置。
+        */
+        /*
+        element.scrollHeight	返回可滚动整体高度。
+        element.scrollLeft	    返回水平滚动距离。
+        element.scrollTop	    返回垂直滚动距离。
+        element.scrollWidth	    返回可滚动整体宽度。
+        */
+
+        // alert(box4.scrollHeight);   //599
+        // alert(box4.clientHeight);   //277
+        // alert(box4.scrollTop);      //322
+        //当满足 box4.scrollHeight - box4.scrollTop = box4.clientHeight时，说明垂直滚动条到底了
+        // alert(box4.scrollHeight - box4.scrollTop);    //277
+
+        // alert(box4.scrollWidth);    //400
+        // alert(box4.scrollLeft);     //222
+        // alert(box4.clientWidth);    //178
+        //当满足 box4.scrollWidth - box4.scrollLeft = box4.clientWidth时，说明水平滚动条到底了
+        // alert(box4.scrollWidth - box4.scrollLeft);    //178
+
+    }
+</script>
+
+</html>

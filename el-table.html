@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div>
+    <div id="app">
+      <p v-for="item in items" :btn="btn">{{item}}</p>
+      <button @click="btn()">删除</button>
+    </div>
+  </div>
+
+</body>
+<script type="text/javascript">
+  var vm = new Vue({
+    el: "#app",
+    data: {
+      items: ['a', 'b', 'c']
+    },
+    methods: {
+      btn() {
+        vm.$delete(this.items, 1);
+        console.log(this.items);
+      }
+    }
+  })
+</script>
+
+</html>

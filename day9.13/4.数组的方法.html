@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+   <title>Document</title>
+</head>
+
+<body>
+
+   <div>
+
+   </div>
+
+</body>
+<script type="text/javascript">
+   /*
+1. push()
+  ---向数组的末尾添加 一个或多个 元素，并返回新的长度。
+2. pop()
+  ---删除，并返回数组的最后一个元素
+3. unshift()
+  ---向数组的 开头 添加 一个或多个 元素，并返回新的长度。
+4. shift()
+  ---删除，并返回数组的第一个元素
+5. slice(start,end)
+  ---从数组中提取指定元素 (索引)，包括start，但不包括end
+  ---不会改变原数组，会封装到一个新数组返回
+  ---第二个参数可以省略不写，此时截取从开始索引往后的值
+6. splice(start,删除数量,添加元素...)
+  ---删除元素，并添加新元素
+  ---会改变原数组
+  ---并将被删除的元素作为返回值返回
+6. concat()
+  ---拼接字符串，可连接两个或多个数组，并将新数组返回
+  ---不会对原数组产生影响
+7. join()
+  ---将数组转换为字符串
+  ---可以通过指定分隔符进行分离
+  ---不会对原数组产生影响
+  ---将转换后的字符串作为结果返回
+8. reverse()
+  ---反转数组，颠倒数组中元素的顺序
+  ---会改变原来的数组
+9. sort()
+  ---排序
+  ---会改变原来的数组,默认按照Unicode编码进行排序
+  ---数值也会按照Unicode编码进行排序，必须在sort()中添加一个回调函数来指定排序规则
+  ---浏览器会根据回调函数的返回值来决定元素的额顺序
+     ---若返回一个大于0的值，则元素交换位置
+     ---若返回一个等于0的值，则元素位置不变
+     ---若返回一个小于0的值，则元素位置不变
+  */
+
+   var arr = ["猪八戒", "孙悟空", "沙和尚"];
+   var arr2 = ["奔波霸", "红孩儿", "玉兔精"];
+   var arr3 = ["太上老君", "玉皇大帝"]
+   //  arr.push("唐僧", "蜘蛛精", "白骨精");
+   //  var result = arr.splice(1,2,"牛魔王","铁扇公主")
+   //  console.log(arr);
+
+   //  console.log(result);
+
+   // var result = arr.concat(arr2, arr3, "123");
+   // result = arr.join("---");   //默认使用 , 连接
+   // result = arr.reverse();
+   arr = [3, 5, 6, 2, 1, 4, 20];
+   function sortNumber(a, b) {
+      console.log(a)
+      console.log(b)
+      // return b - a;  // 由大到小
+      // return a - b;  //由小到大
+   }
+   result = arr.sort(sortNumber);
+   console.log(arr);
+   // console.log(result);
+    // arr.pop();
+    // console.log(arr);
+    // arr.unshift("牛魔王","二郎神")
+    // console.log(arr);
+    // arr.shift();
+    // console.log(arr)
+    // arr.reverse()   反转字符串
+    // console.log(arr)
+
+</script>
+
+</html>

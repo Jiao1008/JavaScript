@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+
+    </div>
+
+</body>
+<script type="text/javascript">
+    /*
+    *   Date对象   详情见https://www.w3school.com.cn/jsref/jsref_obj_date.asp
+    *   ---JS中使用 Date 对象来表示一个时间
+      
+        时间戳，指从格林威治标准时间的1970年1月1日0时0分0秒
+                到当前时间所花费的毫秒数（1s = 1000 ms）
+    */
+
+    var d = new Date();
+
+    //创建一个指定的时间对象
+    //需要在构造函数中传递一个表示时间的字符串作为参数
+    var d2 = new Date();
+    var start = Date.now()
+    for (var i = 0; i < 100; i++) {
+        console.log(i)
+
+    }
+    var end = Date.now()
+    var a = (end - start)/1000;
+    console.log("总共用了"+a+"秒")
+</script>
+
+</html>

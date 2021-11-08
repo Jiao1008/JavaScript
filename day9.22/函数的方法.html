@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+
+    </div>
+
+</body>
+<script type="text/javascript">
+
+    /*  this 的指向
+            ---以 函数 的形式调用，this 指向 window
+            ---以 方法 的形式调用，this 指向 该对象
+            ---以 构造函数 的形式调用时，this 指向新创建的对象
+            ---使用call和apply调用时，this 是指定的那个对象
+    */
+
+    
+    // function fun() {
+    //     alert(this);
+    function fun(a, b) {
+        console.log("a = ", a);
+        console.log("b = ", b)
+    }
+    // }
+    // var obj = {
+    //     name: "obj",
+    //     sayName: function () {
+    //         alert(this.name);
+    //     }
+    // };
+    var obj2 = {
+        name: "obj2"
+    }
+    // // fun    函数对象
+    // fun()  //函数
+    // obj.sayName.apply(obj2)    //同上，调用函数
+    // fun.apply(obj)   //同上，调用函数
+    /*
+            * call()和apply()
+            * ---这两都是 函数对象 的方法
+            * ---都会调用函数
+            * ---可以将一个对象指定为函数的第一个参数，此时这个对象将会成为函数执行时的this
+            * ---call()可以将实参在对象之后依次传递
+            * ---apply()需要将实参封装到一个数组中统一传递
+    */
+    // fun.call(obj2,3,6)
+    fun.apply(obj2, [2, 45])
+</script>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+    <title>构造函数</title>
+</head>
+
+<body>
+
+    <div>
+
+    </div>
+
+</body>
+<script type="text/javascript">
+    /* -解析器在调用函数时都会向函数内部传递进一个隐含的参数 this
+       -this 指向的是一个对象
+       -这个对象称为函数执行的上下文对象
+       -根据函数的调用方式不同，this 会指向不同对象
+          ---以 函数 的形式调用，this 指向 window
+          ---以 方法 的形式调用，this 指向 该对象
+          ---以 构造函数 的形式调用时，this 指向新创建的对象
+    */
+
+    /* 创建一个构造函数，专门用来创建Person对象
+       ---构造函数就是普通函数，
+       ---不同的是 构造函数 习惯首字母大写
+       构造函数和普通函数的区别：调用方式不同
+       ---普通函数直接调用，构造函数使用 new 关键字来调用
+
+       构造函数执行流程：
+       1.立刻创建新的对象
+       2.将新建的对象设置为函数中的 this ---> per
+       3.逐行执行函数中的代码
+       4.将新建的对象作为返回值返回
+    */
+    function Person(name, age, gender) {
+        this.name = name
+    };
+    var per = new Person("沙和尚", 80, "男");  //加 new 为构造函数，不加为普通函数
+    var per3 = new Person("孙悟空", 411, "男");
+    var per4 = new Person("白骨精", 145, "女");
+    var per5 = new Person("铁扇公主", 65, "女");
+    console.log(per);
+    console.log(per3);
+    console.log(per5);
+    console.log(per4);
+
+    function Dog() {
+
+    };
+    var dog = new Dog();
+
+    //使用 instanceof 可以检查一个对象是否是一个构造函数(类)的实例
+    console.log(per instanceof Person);  //true
+    console.log(dog instanceof Person); //false
+    console.log(per instanceof Object);  //true ，祖先
+</script>
+
+</html>

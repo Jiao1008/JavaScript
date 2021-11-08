@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+
+    </div>
+
+</body>
+<script type="text/javascript">
+
+    /*
+    * 在调用函数时，浏览器每次都会传递进两个隐含的参数：
+    * 1.函数的上下文对象 this
+    * 2.封装实参的对象 arguments
+    *   --- arguments是一个 类数组对象，可以通过索引来操作数据，也可以获取长度
+    *   --- 在调用函数时，我们所传递的 实参 都会封装到 arguments中
+    *   --- arguments.length 可以用来获取 实参长度
+    *   --- 即使 不定义形参，也可以通过arguments来使用 实参
+    *   ---属性 callee 对应当前指向的 函数对象
+    
+    */
+    function fun(a,b) {    // 定义形参
+        console.log(arguments)
+        console.log(Array.isArray(arguments));    // false  
+        // instanceof 用来检查一个对象是否是一个 类（构造函数） 的实例
+        console.log(arguments.length)
+        console.log(arguments[0])   // xcs
+        console.log(arguments.callee)   //function fun(a,b){},当前函数对象
+    }
+    fun("xcs", "m", true)    // 传递实参
+</script>
+
+</html>

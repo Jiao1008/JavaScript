@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 不推荐用这种写法，耦合了 -->
+    <!-- <button id="btn" onclick="alert('讨厌，点我干嘛！')">我是一个按钮</button> -->
+    <!-- 可以为对应按钮以函数形式绑定事件 
+        
+    -->
+    <button id="btn">我是一个按钮</button>
+
+    <script type="text/javascript">
+/*
+* 事件：用户和浏览器之间的交互行为
+*      可以在事件对应的属性中设置一些js代码，
+*      当事件被触发时，这些代码将会被执行
+*
+*
+*/
+//获取按钮
+// 像这种为单击事件绑定的函数，称为 单击响应函数
+var btn = document.getElementById("btn");
+btn.onclick=function(){
+    alert("你还点~~~~")
+}
+
+    </script>
+</body>
+
+</html>

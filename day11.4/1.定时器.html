@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+    <title>定时器</title>
+</head>
+
+<body>
+
+    <h1 id="count">1</h1>
+
+</body>
+<script type="text/javascript">
+    //获取count 
+    var count = document.getElementById("count");
+
+    //使count中的内容自动切换
+    /*  setTimeout(function,milloseconds)
+            -等待指定的毫秒数后执行函数
+        setInterval(function,milloseconds)
+            -定时调用，每隔一段时间调用一次
+    */
+    var n = 1;
+
+    var timer = setInterval(function () {
+        count.innerHTML = n++;
+        if (n == 51) {
+            clearInterval(timer);
+        }
+    }, 300);
+</script>
+
+</html>

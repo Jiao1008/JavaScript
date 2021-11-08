@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        /* 
+        *  也叫  三目运算符
+        *  语法：
+        *      条件表达式?语句1:语句2;
+        *  执行流程： 
+        *      1.首先对条件表达式进行求值；
+        *      2.若为 true，则执行语句1；
+        *      3.若为 false，则执行语句2。
+        *   
+        */
+        a = 10; b = 23; c = 40;
+        //获取 a 和 b 中的最大值
+        var max = a > b ? a : b;
+        //获取 a b c 中的最大值
+        max = max > c ? max : c;
+        console.log("max = "+max);
+    </script>
+</body>
+
+</html>

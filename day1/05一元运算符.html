@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        /*当对 非Number 类型的值进行预算时，会将这些值转换为 Number 再进行运算*/
+        var a = 123;
+        b = a + true;  //true = 1
+
+        b = a + false;  //false = 0
+
+        b = a + null;   // null = 0
+
+        b = a + NaN;    //任何类型和 NaN 运算值都为 NaN
+        b = "123" + "789";   // 123789    拼串
+        b = 123 + "1";       // 1231   任何值和字符串做 加法 运算都会西安转换为字符串，然后进行拼串。 
+        console.log(b);
+        console.log(typeof b);
+
+        a = a + "";   // 将任意变量转换为 String，隐式类型转换
+        console.log("a = "+a);
+        console.log(typeof a);
+
+        b = 1 + 2 + "3";
+        console.log("b = "+b);
+        console.log(typeof b);
+        b = "1" + 2 + 3;
+        console.log("b = "+b);
+        console.log(typeof b);
+
+        a = "5";
+        a = a - 0;    //将任意变量转换为 Number，隐式类型转换
+        console.log("a = "+a);
+        console.log(typeof a);
+        // 除了加法，其他任何值和设置做运算都先将转换为 Number 再进行运算
+        result = 9 % 4;    //取余
+        console.log("result = "+result);
+        console.log(typeof result);
+
+    </script>
+</body>
+
+</html>

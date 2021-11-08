@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+
+    </div>
+
+</body>
+<script type="text/javascript">
+    // 详情见https://www.w3school.com.cn/jsref/jsref_obj_string.asp
+    var str = "cmkdnd nmjn";
+    console.log(str.length)  //获取长度
+    console.log(str[6])    //根据索引获取指定位置的字符
+    console.log(str.charAt(3))
+    console.log(str.charCodeAt(0))   //指定的位置的字符的 Unicode 编码
+    console.log(String.fromCharCode(0x2698, 20014, 20018))   // 根据字符编码创建字符串   b
+    console.log(str.indexOf("n"))    //检索字符串
+    console.log(str.lastIndexOf("n"))   //从后向前搜索字符串
+    console.log(str.slice(0, 4))  //提取字符串的片断，并在新的字符串中返回被提取的部分
+    console.log(str.substring(1, 4))  //提取字符串中两个指定的索引号之间的字符。与slice()类似
+                                     // 不同：不接受负数，会自动调整参数位置，若第二个参数小于第一个，则自动交换
+    console.log(str.toLocaleUpperCase())
+    str = "BHSBCJK"
+    console.log(str.toLowerCase())
+
+</script>
+
+</html>

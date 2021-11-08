@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        var a = 123;
+        /* 强制转换：
+        *  其他转为String
+        *    方法一：
+                 调用被转换类型的---方法
+                 即   被转换类型.---方法 
+                 null和 undefined 没有 toString 方法
+        *    方法二：
+                 调用String()函数，并将被转换数据作为参数传递给函数
+                 对于Number和Boolean设计上就是调用 toString方法
+                 但对于 null和 undefined ,会将 null 直接转换为"null,将 undefined 转换为"undefined"
+                         */
+        //a.toString()     
+        a = a.toString();
+        console.log(a);
+        console.log(typeof a)
+        //调用String()函数，将a转换为字符串          
+        a = 123;
+
+        a = null;
+
+        a = undefined;
+        a = String(a);
+        console.log(a);
+        console.log(typeof a)
+
+        /*
+        * 其他转为Number
+        *   方法一：
+        *       调用Number（）函数 
+        *       string --> number：
+        *           1.纯数字直接转换为数字
+        *           2.有非数字内容转换为NaN
+        *       空串或全是空格转换为 0 
+        *       null --> 0
+        *       undefined --> NaN 
+        *    方法二： 
+        *       这种方式专门用来对付字符串
+        *       parseInt() 转换为 整数
+        *       parseFloat() 转换为 浮点数*/
+
+        var b = "123";
+        b = "123d";
+        b = null;
+        b = undefined;
+        b = Number(b);
+        console.log(b);
+        console.log(typeof b)
+
+        var c = "123.45b6";
+        c = parseInt(c);
+        console.log(c);
+        console.log(typeof c)
+        
+        c = "123.45b6";
+        c = parseFloat(c);
+        console.log(c);
+        console.log(typeof c)
+
+    </script>
+</body>
+
+</html>

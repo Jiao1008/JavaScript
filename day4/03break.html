@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+
+    <script type="text/javascript">
+// break 关键字可以退出 switch 或 for 循环语句
+//break 会立即终止和它最近的 循环语句
+//可以为循环语句创建一个label，来标识当前的循环
+// label：循环语句
+//使用break语句时，可以在break后跟一个label，可以结束指定循环
+outer:
+for (let i = 0; i < 8; i++) {
+    console.log("&外部循环",i);
+    for (let j = 0; j < 5; j++) {
+        console.log("@内部循环",j)
+        break outer;
+    }
+    
+}
+// continue 跳出 当次循环，进入 下个循环
+for (let k = 0; k < 5; k++) {
+    if (k == 2) {
+        continue;
+    }
+    console.log(k)
+}
+
+    </script>
+    </body>
+</html>

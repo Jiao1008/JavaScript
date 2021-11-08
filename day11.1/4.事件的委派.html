@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+    <title>事件的委派</title>
+</head>
+
+<body>
+    <button id="btn01">添加一个超链接</button>
+    <ul id="u1">
+        <li><p>我是p元素</p></li>
+        <li><a href="javascript:;" class="link">超链接1</a></li>
+        <li><a href="javascript:;" class="link">超链接2</a></li>
+        <li><a href="javascript:;" class="link">超链接3</a></li>
+    </ul>
+
+</body>
+<script type="text/javascript">
+    var u1 = document.getElementById("u1");
+    var btn01 = document.getElementById("btn01");
+
+    btn01.onclick = function () {
+        //创建一个li
+        var li = document.createElement("li");
+        li.innerHTML = "<a href='javascript:;'>新建的超链接</a>";
+        //将li添加到ul中
+        u1.appendChild(li);
+    }
+    /*
+    *为每一个超链接绑定单级响应函数
+    */
+
+    var allA = document.getElementsByTagName("a");
+    // for (var i = 0; i < allA.length; i++) {
+    //     allA[i].onclick = function () {
+    //         alert("我是a的单击响应函数");
+    //     }
+    // }
+    /*
+    *事件的委派
+    *   -将事件统一绑定给元素共同的祖先元素，当后代元素触发时，会一直冒泡到祖先元素
+    *    从而通过祖先元素的响应函数来处理事件
+    *   -事件委派是利用了冒泡，通过委派可以减少事件绑定的次数，提高程序性能
+    */
+    u1.onclick = function(event){   
+    //如果触发事件的对象是我们期望的元素，则执行
+        event = event || window.event;
+        // alert(event.target);   // target返回触发事件的元素
+        if(event.target.className == "link"){
+            alert("我是ul的单击响应函数");
+        }
+    }
+</script>
+
+</html>
