@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+    <title>定时器1</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            position: absolute;
+            left: 0;
+        }
+
+        #box2 {
+            width: 0;
+            height: 1000px;
+            border-left: 2px solid mediumblue;
+            position: absolute;
+            left: 1000px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn01">点击按钮以后，box1向右移动</button>
+    <button id="btn02">点击按钮以后，box1向左移动</button>
+    <button id="btn03">点击按钮以后，box1向上移动</button>
+    <button id="btn04">点击按钮以后，box1向下移动</button>
+    <br /><br />
+    <div id="box1"></div>
+    <div id="box2"></div>
+
+</body>
+<script type="text/javascript">
+    //获取按钮和box1
+    var btn01 = document.getElementById("btn01");
+    var btn02 = document.getElementById("btn02");
+    var btn03 = document.getElementById("btn03");
+    var btn04 = document.getElementById("btn04");
+    var box1 = document.getElementById("box1");
+    //设置移动速度
+    var speed = 13;
+    //定义变量。用来保存定时器标识
+    var timer;
+    //为按钮 绑定单击响应函数
+    btn01.onclick = function () {
+        move1(box1, 1000, 10);
+    };
+    btn02.onclick = function () {
+        move1(box1, 0, 10);
+    };
+    btn03.onclick = function () {
+        move2(box1, 0, 10);
+    };
+    btn04.onclick = function () {
+        move2(box1, 1000, 10);
+    };
+    //尝试创建一个动画的函数
+    /*
+        参数：
+            obj: 要执行动画的对象
+            target: 执行动画的目标位置
+            speed: 速度(正数向右，负数向左)
+    */
+    function move1(obj, target, speed) {
+        //清除上一个定时器
+        clearInterval(timer);
+        //获取元素目前的位置
+        var current = parseInt(getStyle(obj, "left"));
+        //判断速度的正负值
+        //如果从0向1000移动，speed为正，反之为负
+        if (current > target) {
+            //此时速度应为负
+            speed = -speed;
+        }
+        timer = setInterval(function () {
+//获取box1原来的值
+        var oldVal = parseInt(getStyle(obj, "left"));
+            //在旧值的基础上增加
+            var newVal = oldVal + speed;
+            box1.style.left = newVal + "px";
+            //当元素移动到1000像素时停止
+            //向左移动时，需要判断newVal的值是否小于target 0
+            //向右移动时，需要判断newVal的值是否大于target 1000
+            if (speed < 0 && newVal < target || speed > 0 && newVal >= target) {
+                newVal = target;
+                clearInterval(timer);
+            }
+        }, 30)
+    }
+    function move2(obj, target, speed) {
+        //清除上一个定时器
+        clearInterval(timer);
+        //获取元素目前的位置
+        var current = parseInt(getStyle(obj, "top"));
+        //判断速度的正负值
+        //如果从0向1000移动，speed为正，反之为负
+        if (current > target) {
+            //此时速度应为负
+            speed = -speed;
+        }
+        timer = setInterval(function () {
+//获取box1原来的值
+        var oldVal = parseInt(getStyle(obj, "top"));
+            //在旧值的基础上增加
+            var newVal = oldVal + speed;
+            box1.style.top = newVal + "px";
+            //当元素移动到1000像素时停止
+            //向上移动时，需要判断newVal的值是否小于target 0
+            //向下移动时，需要判断newVal的值是否大于target 1000
+            if (speed < 0 && newVal < target || speed > 0 && newVal >= target) {
+                newVal = target;
+                clearInterval(timer);
+            }
+        }, 30)
+    }
+    function getStyle(obj, name) {
+        if (window.getComputedStyle) {
+            //正常浏览器
+            return window.getComputedStyle(obj, null)[name];
+        } else {
+            // IE8
+            return obj.currentStyle(name);
+        }
+    }
+
+</script>
+
+</html>

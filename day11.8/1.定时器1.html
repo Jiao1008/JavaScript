@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+    <title>定时器1</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            position: absolute;
+            left: 0;
+        }
+
+        #box2 {
+            width: 0;
+            height: 1000px;
+            border-left: 2px solid mediumblue;
+            position: absolute;
+            left: 1000px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn01">点击按钮以后，box1向右移动</button>
+    <br /><br />
+    <div id="box1"></div>
+    <div id="box2"></div>
+
+</body>
+<script type="text/javascript">
+    //获取按钮和box1
+    var btn01 = document.getElementById("btn01");
+    var box1 = document.getElementById("box1");
+    //设置移动速度
+    var speed = 13;
+    //定义变量。用来保存定时器标识
+    var timer;
+    //为按钮 绑定单击响应函数
+    btn01.onclick = function (event) {
+        //清除上一个定时器
+        clearInterval(timer);
+        event = event || window.event;
+        timer = setInterval(function () {
+            //获取box1原来的值
+            var oldVal = parseInt(getStyle(box1, "left"));
+            //在旧值的基础上增加
+            var newVal = oldVal + speed;
+            box1.style.left = newVal + "px";
+            //当元素移动到1000像素时停止
+            if (newVal >= 1000) {
+                newVal = 1000;
+                clearInterval(timer);
+            }
+        }, 30)
+
+    };
+    function getStyle(obj, name) {
+        if (window.getComputedStyle) {
+            //正常浏览器
+            return window.getComputedStyle(obj, null)[name];
+        } else {
+            // IE8
+            return obj.currentStyle(name);
+        }
+    }
+
+</script>
+
+</html>
