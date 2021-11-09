@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="../day11.8/js/tools.js"></script>
+    <title>轮播图(自动)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #outer {
+            width: 520px;
+            height: 400px;
+            background-color: lightblue;
+            margin: 50px auto;
+            padding: 10px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        img {
+            width: 500px;
+            height: 100%;
+        }
+        #imgList {
+            list-style: none;
+            /* width: 2600px;   不能写死   */
+            position: absolute;
+            left: -1040px;
+
+        }
+        #imgList li {
+            float: left;
+            margin: 0 10px;
+        }
+        #navDiv {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            /* 给父元素开启相对定位，子元素开启绝对定位，子元素left50%，然后再左移动自身长度的50% */
+            transform: translate(-50%);
+        }
+        #navDiv a {
+            float: left;
+            width: 15px;
+            height: 15px;
+            background-color: lightslategray;
+            margin: 0 5px;
+            /*设置半透明*/
+            opacity: 0.7;
+            /* 兼容IE8透明 */
+            filter: alpha(opacity=50);
+        }
+        #navDiv a:hover {
+            background-color: rgb(103, 167, 231);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <ul id="imgList">
+            <li><img src="../day11.4/img/q2.jpg" alt="#"></li>
+            <li><img src="../day11.4/img/q3.jpg" alt="#"></li>
+            <li><img src="../day11.4/img/q4.jpg" alt="#"></li>
+            <li><img src="../day11.4/img/q5.jpg" alt="#"></li>
+            <li><img src="../day11.4/img/q6.jpg" alt="#"></li>
+            <li><img src="../day11.4/img/q2.jpg" alt="#"></li>
+        </ul>
+        <!-- 导航按钮 -->
+        <div id="navDiv">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    //获取imgList
+    var imgList = document.getElementById("imgList");
+    //获取页面中所有的img标签
+    var imgArr = document.getElementsByTagName("img");
+    //设置imgList的宽度
+    imgList.style.width = 520 * imgArr.length + "px";
+    var index = 0;
+    // 获取所有a
+    var allA = document.getElementsByTagName("a");
+    // 设置默认选中效果
+    allA[index].style.backgroundColor = "rgb(103, 167, 231)";
+    var timer;
+    /*
+        1.点击超链接切换到指定图片
+            点击第一个，显示第一张图片
+            ......
+    */
+    // 为所有超链接都绑定单击响应函数
+    for (var i = 0; i < allA.length; i++) {
+        allA[i].num = i;
+        // 为超链接绑定单击响应函数
+        allA[i].onclick = function () {
+            // 关闭自动切换定时器
+            clearInterval(timer);
+            // 获取点击超链接的索引，并将其设置为index
+            index = this.num;
+            // 切换图片
+            /*
+                第一张索引为 0   0
+                第二张       1   -520
+                第二张       2   -1040          
+            */
+            // imgList.style.left = index * -520 + "px";
+            // 设置选中a
+            setA();
+            move(imgList, "left", -520 * index, 30, function () {
+                autoChange();
+            });
+        }
+    }
+    // 开启自动切换
+    autoChange();
+    // 创建一个方法，设置a
+    function setA() {
+        // 判断是否为最后一张
+        if (index >= imgArr.length - 1) {
+            index = 0;
+            // 此时显示最后一张
+            imgList.style.left = 0 + "px";
+        }
+        //  遍历所有a，并将他们的背景颜色设置为默认色
+        for (var i = 0; i < allA.length; i++) {
+            allA[i].style.backgroundColor = "";
+        }
+        // 将选中的设置为蓝色
+        allA[index].style.backgroundColor = "rgb(103, 167, 231)";
+    }
+    // 创建一个自动切换的函数
+    function autoChange() {
+        // 开启一个定时器，用来自动切换图片
+        timer = setInterval(function () {
+            index++;
+            //执行动画，切换图片
+            move(imgList, "left", -520 * index, 30, function () {
+                setA();
+            });
+        }, 2500);
+    }
+</script>
+
+</html>
